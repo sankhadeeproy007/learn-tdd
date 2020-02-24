@@ -1,0 +1,15 @@
+.header {
+  height: 70px;
+  background: rgb(87, 41, 240);
+  background: linear-gradient(
+    90deg,
+    rgba(87, 41, 240, 1) 0%,
+    rgba(194, 42, 124, 1) 100%
+  );
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
