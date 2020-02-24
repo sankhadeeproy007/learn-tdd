@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import './styles.scss';
 
@@ -16,7 +16,7 @@ export const Headline = ({ title, description }) => {
   );
 };
 
-// Headline.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired
-// };
+Headline.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string
+};
