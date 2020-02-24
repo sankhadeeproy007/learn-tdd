@@ -1,12 +1,32 @@
+/* eslint-disable react/forbid-foreign-prop-types */
 /* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react';
 import { shallow } from 'enzyme';
+import checkPropTypes from 'check-prop-types';
 
 import { Headline } from '.';
 
 const setUp = (props = {}) => shallow(<Headline {...props} />);
 
 describe('Headline Component', () => {
+  describe('Checking prop types', () => {
+    test('should not throw a warning', () => {
+      const expectedProps = {
+        title: 'Test header',
+        description: 'Test description'
+      };
+
+      const propsError = checkPropTypes(
+        Headline.propTypes,
+        expectedProps,
+        'props',
+        Headline.name
+      );
+
+      expect(propsError).toBeUndefined();
+    });
+  });
+
   describe('Has props', () => {
     let component;
 
