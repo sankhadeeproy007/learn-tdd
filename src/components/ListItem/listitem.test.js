@@ -40,9 +40,17 @@ describe('ListItem Component', () => {
       const wrapper = component.find(`[test-id='listitem']`);
       expect(wrapper.length).toBe(1);
     });
+    test('should render title', () => {
+      const title = component.find(`[test-id='title']`);
+      expect(title.length).toBe(1);
+    });
+    test('should render description', () => {
+      const title = component.find(`[test-id='description']`);
+      expect(title.length).toBe(1);
+    });
   });
 
-  describe('renders loader when loading', () => {
+  describe('renders loader', () => {
     let component;
     beforeEach(() => {
       const props = {
@@ -50,9 +58,11 @@ describe('ListItem Component', () => {
       };
       component = setUp(props);
     });
-    test('should render loader', () => {
-      const wrapper = component.find(`[test-id='loader']`);
-      expect(wrapper.length).toBe(1);
+    test('should render loader when loading is true', () => {
+      const loader = component.find(`[test-id='loader']`);
+      const wrapper = component.find(`[test-id='listitem']`);
+      expect(loader.length).toBe(1);
+      expect(wrapper.length).toBe(0);
     });
   });
 });

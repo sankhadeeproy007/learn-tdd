@@ -7,7 +7,12 @@ export const ListItem = ({ title, description, loading }) => {
   if (loading) {
     return <PostLoader test-id='loader' />;
   }
-  return <div test-id='listitem'>Haha</div>;
+  return (
+    <div test-id='listitem'>
+      <h2 test-id='title'>{title}</h2>
+      <p test-id='description'>{description}</p>
+    </div>
+  );
 };
 
 ListItem.propTypes = {

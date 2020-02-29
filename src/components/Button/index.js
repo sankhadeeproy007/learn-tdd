@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './styles.scss';
+
 export const Button = ({ buttonText, onClick }) => {
   const handleClick = () => {
     if (onClick) {
@@ -9,7 +11,7 @@ export const Button = ({ buttonText, onClick }) => {
   };
 
   return (
-    <button onClick={handleClick} test-id='button'>
+    <button onClick={handleClick} test-id='button' className='button'>
       {buttonText}
     </button>
   );
