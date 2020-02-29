@@ -34,10 +34,6 @@ const App = ({ fetchPosts }) => {
   );
 };
 
-// const mapStateToProps = state => ({
-//   posts: state.posts
-// });
-
 App.propTypes = {
   posts: PropTypes.array,
   fetchPosts: PropTypes.func
