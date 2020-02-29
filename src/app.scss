@@ -1,3 +1,9 @@
+$breakpoint-tablet: 768px;
+
 section {
   margin: 0 20px;
+  transition: margin 0.2s;
+  @media (min-width: $breakpoint-tablet) {
+    margin: 0 100px;
+  }
 }
