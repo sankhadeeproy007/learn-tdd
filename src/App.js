@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { Header, Headline, Button, ListItem } from './components';
@@ -7,9 +7,7 @@ import { fetchPosts } from './actions';
 
 import './app.scss';
 
-const App = ({ fetchPosts }) => {
-  const posts = useSelector(state => state.posts);
-
+export const App = ({ posts, fetchPosts }) => {
   const getPosts = () => {
     fetchPosts();
   };
@@ -20,7 +18,7 @@ const App = ({ fetchPosts }) => {
   };
 
   return (
-    <div>
+    <div test-id='app'>
       <Header />
       <section>
         <Headline title='Posts' description='Click button to see more posts' />
@@ -34,9 +32,13 @@ const App = ({ fetchPosts }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  posts: state.posts
+});
+
 App.propTypes = {
   posts: PropTypes.array,
   fetchPosts: PropTypes.func
 };
 
-export default connect(null, { fetchPosts })(App);
+export default connect(mapStateToProps, { fetchPosts })(App);
