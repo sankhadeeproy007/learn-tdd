@@ -26,17 +26,25 @@ describe('Button Component', () => {
   });
 
   describe('renders', () => {
+    let mockFunction;
     let component;
     beforeEach(() => {
+      mockFunction = jest.fn();
       const props = {
         buttonText: 'Button text',
-        onClick: () => {}
+        onClick: mockFunction
       };
       component = setUp(props);
     });
     test('should render without errors', () => {
-      const wrapper = component.find(`[test-id='button']`);
-      expect(wrapper.length).toBe(1);
+      const button = component.find(`[test-id='button']`);
+      expect(button.length).toBe(1);
+    });
+    test('should emit callback on click event', () => {
+      const button = component.find(`[test-id='button']`);
+      button.simulate('click');
+      const callback = mockFunction.mock.calls.length;
+      expect(callback).toBe(1);
     });
   });
 });
