@@ -22,11 +22,13 @@ export const App = ({ posts, fetchPosts }) => {
       <Header />
       <section>
         <Headline title='Posts' description='Click button to see more posts' />
-        <Button {...buttonProps} />
-        {posts.length > 0 &&
+        {posts.length === 0 ? (
+          <Button {...buttonProps} test-id='button' />
+        ) : (
           posts.map(({ title, body, id }) => (
             <ListItem key={id} {...{ title }} description={body} />
-          ))}
+          ))
+        )}
       </section>
     </div>
   );
